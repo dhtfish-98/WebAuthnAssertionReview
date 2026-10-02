@@ -1,26 +1,19 @@
 {
   "name": "WebAuthnAssertionReview",
-  "group": "identity",
+  "version": "0.1.2",
   "status": "PASS",
-  "version": "0.1.1",
   "test_count": 17,
-  "source_code_sha256": "c11e849917d70113a23efff7f26b1c90a5a7633070ebe2051a90b551e3aaad0d",
-  "wheel_sha256": "2593b434b3b56a2c68850755cc0b6a1849f0cc88dbf8a61444c131a10af17969",
-  "source_wheel_installed_bytes": "PASS",
-  "licenses": "PASS",
-  "dependency_check": "PASS",
-  "verified_utc": "2026-10-02T11:31:38.023724+00:00",
-  "wheel": "cvp_webauthn_assertion_review-0.1.1-py3-none-any.whl",
-  "verification": "Fresh per-project environment; wheel/source/installed runtime byte comparison; complete installed unittest suite; pip dependency check; license byte checks",
-  "runtime_platform": "Python 3.14 macOS arm64; remote Linux CI recorded separately",
+  "wheel_sha256": "7de0f26c10d3ee5e510c88ba184f9bc0f65ae9f42fc702a8308b5d0fea4cff0c",
+  "author": "dhtfish98",
+  "wheel": "cvp_webauthn_assertion_review-0.1.2-py3-none-any.whl",
+  "verification": "Rebuilt wheel, separate installed tests, package author metadata, runtime and retained third-party notice byte verification",
+  "record_kind": "Attribution patch verification",
   "application_qualification": "OPEN",
   "whole_upstream_equivalence": "OPEN",
-  "effective_deployed_protection": "OPEN",
-  "record_kind": "Current repaired release verification",
   "historical_initial_release_comparison": {
     "reference": "webauthn 2.7.0 assertion verifier",
     "Ed25519_and_counter_match": true,
     "tampered_signature_rejected_by_both": true
   },
-  "comparison_limit": "Initial fixed vectors only; see VALIDATION.md for additional source re-audit vectors. No full upstream equivalence."
+  "comparison_limit": "Initial fixed vectors only; not full upstream equivalence."
 }

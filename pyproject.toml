@@ -3,7 +3,8 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "cvp-webauthn-assertion-review"
-version = "0.1.1"
+version = "0.1.2"
+authors = [{name = "dhtfish98"}]
 description = "Offline WebAuthn get assertion verification from a saved ceremony plus explicit trusted registration record; PEM Ed25519/ES256 key profile."
 requires-python = ">=3.11"
 license = "MIT"

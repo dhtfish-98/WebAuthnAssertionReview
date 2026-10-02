@@ -1,5 +1,7 @@
 # WebAuthnAssertionReview
 
+New implementation author: **dhtfish98**. Package version: **0.1.2**.
+
 Offline WebAuthn get assertion verification from a saved ceremony plus explicit trusted registration record; PEM Ed25519/ES256 key profile.
 
 This is an independently implemented, complete selected offline input profile. It is not an equivalent rewrite of the entire upstream platform. Cryptographic primitives use cryptography; no upstream application is called.

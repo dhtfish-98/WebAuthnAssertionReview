@@ -1,5 +1,7 @@
 # Origin and implementation scope
 
+The new independent implementation is authored by **dhtfish98** (package version **0.1.2**). Upstream works retain their original attribution and license notices in this document and `UPSTREAM_LICENSE`.
+
 WebAuthnAssertionReview independently implements this selected scope: Offline WebAuthn get assertion verification from a saved ceremony plus explicit trusted registration record; PEM Ed25519/ES256 key profile.
 
 The research source is [duo-labs/py_webauthn](https://github.com/duo-labs/py_webauthn) at fixed commit `d72e0f53cb6684fdd2f178bae83aeab8bda64665`. Source archive SHA-256: `f2517388b0b99020c8682d9932a80fb79b1a213c637e40ebe5cda17a57fa5c82`. Its license is BSD-3-Clause; the exact source license notice is retained as `UPSTREAM_LICENSE`. The new application code and documentation are licensed under MIT (`LICENSE`). The upstream application is neither imported nor executed by the production package. No upstream application source is bundled in the production package.
