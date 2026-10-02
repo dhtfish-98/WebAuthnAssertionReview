@@ -1,5 +1,34 @@
 from .common import *
 from .crypto import *
+import ipaddress,re
+from urllib.parse import urlsplit
+
+def serialized_origin(value):
+    """Selected ASCII HTTPS origin profile; no URL path or normalization guesses."""
+    value=string(value,1024)
+    need(all(33<=ord(c)<=126 for c in value),"origin must be printable ASCII")
+    try:
+        origin=urlsplit(value);host=origin.hostname;port=origin.port
+    except ValueError:raise ReviewError("invalid HTTPS origin") from None
+    need(origin.scheme=='https' and host and origin.username is None and origin.password is None and not origin.path and not origin.query and not origin.fragment,"invalid HTTPS origin")
+    if ':' in host:
+        try:address=ipaddress.IPv6Address(host)
+        except ValueError:raise ReviewError("invalid origin host") from None
+        need('%' not in host,"scoped IP origin unsupported");authority='['+address.compressed+']'
+    else:
+        labels=host.removesuffix('.').split('.')
+        need(all(re.fullmatch(r'[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?',x) for x in labels),"invalid origin host")
+        if labels[-1].isdigit() or re.fullmatch(r'0x[0-9a-f]+',labels[-1]):
+            try:authority=str(ipaddress.IPv4Address(host))
+            except ValueError:raise ReviewError("invalid origin IPv4 host") from None
+        else:
+            try:host.encode('ascii').decode('idna')
+            except UnicodeError:raise ReviewError("invalid origin IDNA host") from None
+            authority=host
+    need(len(host)<=253,"origin host size limit")
+    authority+=(':'+str(port)) if port is not None and port!=443 else ''
+    need(value=='https://'+authority,"expected a canonical serialized HTTPS origin")
+    return origin
 def audit(d):
     fields(d,['credential','trusted_record','expected_challenge','expected_origin','expected_rp_id','require_user_verification'])
     c=obj(d['credential']);fields(c,['id','rawId','type','response']);need(c['type']=='public-key',"invalid credential type")
@@ -10,8 +39,7 @@ def audit(d):
     need(client_obj['type']=='webauthn.get',"wrong ceremony type")
     expected=b64(d['expected_challenge'],True,1024);need(len(expected)>=16 and b64(client_obj['challenge'],True,1024)==expected,"challenge mismatch or too short")
     need(client_obj['origin']==string(d['expected_origin'],1024),"origin mismatch")
-    from urllib.parse import urlsplit
-    origin=urlsplit(d['expected_origin']);rp=string(d['expected_rp_id'],253);need(origin.scheme=='https' and origin.hostname and (origin.hostname==rp or origin.hostname.endswith('.'+rp)) and not origin.username and not origin.password and origin.path in ('','/') and not origin.query and not origin.fragment,"invalid HTTPS relying party context")
+    origin=serialized_origin(d['expected_origin']);rp=string(d['expected_rp_id'],253);need(rp and (origin.hostname==rp or origin.hostname.endswith('.'+rp)),"invalid HTTPS relying party context")
     need(not boolean(client_obj.get('crossOrigin',False)),"cross-origin assertions unsupported")
     if 'userHandle' in r and r['userHandle'] is not None:
         need('user_handle' in record and b64(r['userHandle'],True,1024)==b64(record['user_handle'],True,1024),"user handle mismatch")

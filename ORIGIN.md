@@ -29,3 +29,7 @@ Primary references: [libsodium point arithmetic](https://libsodium.gitbook.io/do
 ## Defensive use and application evidence
 
 Inputs must belong to the authorized reviewer. Runtime performs no fetch, sample execution, private-key processing, key export, signing, remote modification or outbound communication. CVP organizational eligibility, evidence of a legitimate blocked task, application review and program acceptance remain OPEN. These local results alone do not establish them.
+
+## Re-audited supported semantics
+
+The origin profile accepts canonical serialized ASCII HTTPS origins with lowercase DNS A-label hosts or canonical IP literals and valid ports (0 through 65535). Default port 443 is omitted; paths (including a trailing slash), queries, fragments, userinfo, control characters and noncanonical port forms are rejected. This validates origin syntax and exact binding; public-suffix registration policy remains caller-owned. References: [WebAuthn CollectedClientData.origin](https://www.w3.org/TR/webauthn-3/#dom-collectedclientdata-origin), [RFC 6454 origin serialization](https://www.rfc-editor.org/rfc/rfc6454.html#section-6.2), [WHATWG port state](https://url.spec.whatwg.org/#port-state).

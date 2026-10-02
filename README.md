@@ -20,7 +20,7 @@ Required `credential` is a saved `public-key` get assertion with canonical base6
 
 All accepted Ed25519 public keys are canonical nonidentity points in the main subgroup, checked through libsodium. Ed25519 signature R points must also be canonical nonidentity main-subgroup points and S must be below the group order. Certificates and CRLs require exactly matching inner/outer AlgorithmIdentifiers; the strict profile permits only RSA PKCS#1 SHA-256/384/512 with NULL parameters, ECDSA SHA-256/384/512 with absent parameters, and Ed25519 with absent parameters. OCSP permits the same explicit algorithm encodings and key-family/hash binding.
 
-Where the profile accepts public PEM inputs, they contain one SubjectPublicKeyInfo or certificate object respectively, with canonical base64, no duplicate object and no trailing content. UTF-8 string values and keys reject lone surrogates; JSON results are safely ASCII-escaped.
+Where the profile accepts public PEM inputs, they contain one SubjectPublicKeyInfo or certificate object respectively, with canonical base64, no duplicate object and no trailing content. UTF-8 string values and keys reject lone surrogates; parsed floating-point overflow is rejected as nonfinite; JSON results are safely ASCII-escaped.
 
 The saved `examples/valid.json` is synthetic and contains only public data. Time-dependent examples retain their recorded reference `now`; tests generate fresh synthetic objects in temporary directories without changing examples.
 
@@ -33,3 +33,11 @@ webauthn-assertion-review examples/valid.json
 ```
 
 See [ORIGIN.md](ORIGIN.md), [VALIDATION.md](VALIDATION.md), [LICENSE](LICENSE) and [UPSTREAM_LICENSE](UPSTREAM_LICENSE) for scope, evidence and attribution.
+
+## File input platform contract
+
+Regular-file input and file-based CLI requests require usable `os.O_NOFOLLOW` and `os.O_NONBLOCK` capabilities. Missing capabilities produce a controlled incomplete FAIL; there is no fallback that follows the final-component symlink or blocks on a FIFO. macOS and Linux CI have been exercised. Native Windows file-input behavior remains unverified.
+
+## Re-audited input semantics
+
+The origin profile accepts canonical serialized ASCII HTTPS origins with lowercase DNS A-label hosts or canonical IP literals and valid ports (0 through 65535). Default port 443 is omitted; paths (including a trailing slash), queries, fragments, userinfo, control characters and noncanonical port forms are rejected. This validates origin syntax and exact binding; public-suffix registration policy remains caller-owned. References: [WebAuthn CollectedClientData.origin](https://www.w3.org/TR/webauthn-3/#dom-collectedclientdata-origin), [RFC 6454 origin serialization](https://www.rfc-editor.org/rfc/rfc6454.html#section-6.2), [WHATWG port state](https://url.spec.whatwg.org/#port-state).
