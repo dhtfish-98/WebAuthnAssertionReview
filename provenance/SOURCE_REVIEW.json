@@ -1,0 +1,52 @@
+{
+  "source_repository": "https://github.com/duo-labs/py_webauthn",
+  "source_commit": "d72e0f53cb6684fdd2f178bae83aeab8bda64665",
+  "source_license": "BSD-3-Clause",
+  "source_archive_sha256": "f2517388b0b99020c8682d9932a80fb79b1a213c637e40ebe5cda17a57fa5c82",
+  "review_focus": [
+    "assertion challenge/origin/RP and credential binding",
+    "UP/UV/backup flags and monotonic sign counter",
+    "authenticatorData plus clientDataJSON hash signature input"
+  ],
+  "complete_selected_files_retained_in_research_archive": true,
+  "research_archive_path": "identity/upstream/webauthn",
+  "selected_files": [
+    {
+      "path": "webauthn/authentication/verify_authentication_response.py",
+      "sha256": "b087274473e97db241fee2d0b2f65098899cb526cc5ce7c7257f4d4930e304fe",
+      "bytes": 7494,
+      "lines": 195,
+      "url": "https://github.com/duo-labs/py_webauthn/blob/d72e0f53cb6684fdd2f178bae83aeab8bda64665/webauthn/authentication/verify_authentication_response.py"
+    },
+    {
+      "path": "webauthn/helpers/parse_authenticator_data.py",
+      "sha256": "a8c3f0c218c3a5546eb841db1fe25c9360813acd98c58f27161abd607ff7cf74",
+      "bytes": 3797,
+      "lines": 106,
+      "url": "https://github.com/duo-labs/py_webauthn/blob/d72e0f53cb6684fdd2f178bae83aeab8bda64665/webauthn/helpers/parse_authenticator_data.py"
+    },
+    {
+      "path": "webauthn/helpers/parse_client_data_json.py",
+      "sha256": "f2284aed185100c44fd3587668377a3137e72ba9880f8eea25c54f1dff8940ed",
+      "bytes": 2510,
+      "lines": 68,
+      "url": "https://github.com/duo-labs/py_webauthn/blob/d72e0f53cb6684fdd2f178bae83aeab8bda64665/webauthn/helpers/parse_client_data_json.py"
+    },
+    {
+      "path": "webauthn/helpers/parse_backup_flags.py",
+      "sha256": "ad9356d061b038d62525310d5e73847b3eda42c617fbbc998861a8bcb71633b7",
+      "bytes": 1150,
+      "lines": 34,
+      "url": "https://github.com/duo-labs/py_webauthn/blob/d72e0f53cb6684fdd2f178bae83aeab8bda64665/webauthn/helpers/parse_backup_flags.py"
+    },
+    {
+      "path": "webauthn/helpers/verify_signature.py",
+      "sha256": "86e734a985495b53fcc573d0515f74f7dcfbb25669993f030e951d9d3536fb84",
+      "bytes": 2713,
+      "lines": 66,
+      "url": "https://github.com/duo-labs/py_webauthn/blob/d72e0f53cb6684fdd2f178bae83aeab8bda64665/webauthn/helpers/verify_signature.py"
+    }
+  ],
+  "new_implementation_all_source_files_reviewed": true,
+  "whole_upstream_platform_equivalence": false
+}

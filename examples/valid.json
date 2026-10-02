@@ -1,0 +1,22 @@
+{
+  "credential": {
+    "id": "c3ludGhldGljIGNyZWRlbnRpYWw",
+    "rawId": "c3ludGhldGljIGNyZWRlbnRpYWw",
+    "type": "public-key",
+    "response": {
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiTURFeU16UTFOamM0T1dGaVkyUmxabWRvYVdwcmJHMXViM0J4Y25OMGRYWSIsIm9yaWdpbiI6Imh0dHBzOi8vZXhhbXBsZS5pbnZhbGlkIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+      "authenticatorData": "JnieIDZhHoSuxlBFqFBiSKiV5H-n3-pQ5K0QyFXL8rkFAAAAAg",
+      "signature": "B9uvLArwClOUssWMz4ZVmai45Bz0e7f1m4hm79JrWtPqDiJ6k-ihQjbkZPXT-2uQ_RKy29NkhYKiaz-MQeNgBA"
+    }
+  },
+  "trusted_record": {
+    "credential_id": "c3ludGhldGljIGNyZWRlbnRpYWw",
+    "public_key": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAo6hIyWraOmeBdsWNGT9NZxQUdFoBch5D9CZUoBzePyg=\n-----END PUBLIC KEY-----\n",
+    "algorithm": "Ed25519",
+    "sign_count": 1
+  },
+  "expected_challenge": "MDEyMzQ1Njc4OWFiY2RlZmdoaWprbG1ub3BxcnN0dXY",
+  "expected_origin": "https://example.invalid",
+  "expected_rp_id": "example.invalid",
+  "require_user_verification": true
+}

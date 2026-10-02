@@ -1,0 +1,14 @@
+{
+  "project": "WebAuthnAssertionReview",
+  "status": "PASS",
+  "test_count": 11,
+  "wheel": "cvp_webauthn_assertion_review-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "6e1ad35dfe19afc8eede71bbfe87731ba537278dcd7b4294722391ac5a069eb5",
+  "verification": "Local supported and malformed input tests, wheel build, separate install, imported package origin and CLI checks",
+  "reproduction": [
+    "python -m pip install .",
+    "python -m unittest discover -s tests -v",
+    "python -m pip wheel --no-deps --wheel-dir artifacts ."
+  ],
+  "limits": "Point-in-time engineering evidence only; CVP qualification and approval remain OPEN"
+}
