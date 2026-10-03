@@ -1,0 +1,30 @@
+{
+  "schema": "project-build-layout.v1",
+  "project": "WebAuthnAssertionReview",
+  "author": "dhtfish98",
+  "kind": "python",
+  "base_public_commit": "e5523734c47c6926a023ff7300af0d79a50021bf",
+  "restored_inputs": [
+    {
+      "original": "LICENSE",
+      "stored": "项目文档/LICENSE",
+      "sha256": "de926d6c22d9e061af6158b0f23146ce036bfb2a562f2f406acec2dc4bd8b298"
+    },
+    {
+      "original": "ORIGIN.md",
+      "stored": "项目文档/ORIGIN.md",
+      "sha256": "4a617f36b82d577264c1eecb257ca4c2660cbec0d2a8d6d8744c7c931eccfc95"
+    },
+    {
+      "original": "README.md",
+      "stored": "项目文档/README.md",
+      "sha256": "c4fa48bb5abd8ca39bd5a96c940d04af24e7d8a84670871c4222400c90c63fb8"
+    },
+    {
+      "original": "VALIDATION.md",
+      "stored": "项目文档/VALIDATION.md",
+      "sha256": "5cff224d3be40d577b11e02ac37ee8ef76d314b74cf1c183fd3861db353f1492"
+    }
+  ],
+  "platform_entries": []
+}
