@@ -2,7 +2,7 @@
 
 # WebAuthnAssertionReview
 
-New implementation author: **dhtfish98**. Package version: **0.1.2**.
+New implementation author: **dhtfish98**. Package version: **0.1.3**.
 
 Offline WebAuthn get assertion verification from a saved ceremony plus explicit trusted registration record; PEM Ed25519/ES256 key profile.
 
@@ -36,7 +36,7 @@ python -m unittest discover -s tests -v
 webauthn-assertion-review examples/valid.json
 ```
 
-See [ORIGIN.md](<ORIGIN.md>), [VALIDATION.md](<VALIDATION.md>), [LICENSE](<LICENSE>) and [UPSTREAM_LICENSE](<../UPSTREAM_LICENSE>) for scope, evidence and attribution.
+See [ORIGIN.md](<ORIGIN.md>), [VALIDATION.md](<VALIDATION.md>), [LICENSE](<LICENSE>) and [UPSTREAM_LICENSE](<UPSTREAM_LICENSE>) for scope, evidence and attribution.
 
 ## File input platform contract
 

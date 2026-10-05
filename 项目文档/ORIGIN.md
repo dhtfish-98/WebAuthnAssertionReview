@@ -1,6 +1,6 @@
 # Origin and implementation scope
 
-The new independent implementation is authored by **dhtfish98** (package version **0.1.2**). Upstream works retain their original attribution and license notices in this document and `UPSTREAM_LICENSE`.
+The new independent implementation is authored by **dhtfish98** (package version **0.1.3**). Upstream works retain their original attribution and license notices in this document and `UPSTREAM_LICENSE`.
 
 WebAuthnAssertionReview independently implements this selected scope: Offline WebAuthn get assertion verification from a saved ceremony plus explicit trusted registration record; PEM Ed25519/ES256 key profile.
 
